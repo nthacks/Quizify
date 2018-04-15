@@ -1,0 +1,14 @@
+{
+ "background_color": "#fff",
+ "display": "standalone",
+ "icons": [
+  {
+   "sizes": "192x192",
+   "src": "ic_launcher.png",
+   "type": "image/png"
+  }
+ ],
+ "name": "Quizify! Quiz Generator",
+ "short_name": "Quizify!",
+ "start_url": "/index.php"
+}
