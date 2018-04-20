@@ -1,1 +1,1 @@
-# Quizify
+# Quizify! A Randomized Quiz Generator
