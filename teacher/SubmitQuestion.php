@@ -9,8 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	{		
 		$stmt->close();
 		$mysqli->close();
-		header("location: FormPage.php");
-		die();
+		die("Invalid Request");
 	}
 	// Prepare an insert statement
 	$sql = "INSERT INTO `qb`(`subject`, `question`, `correct`, `wrong1`, `wrong2`, `wrong3`) VALUES (?,?,?,?,?,?)";
@@ -31,14 +30,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			$stmt->close();
 			$mysqli->close();
 			header("location: /index.php");
-			die();
+			exit();
 		} 
 		else
 		{
 			$stmt->close();
 			$mysqli->close();
-			header("location: /index.php");
-			die();
+			die("Query could not be executed");
 		}
 	}
 }

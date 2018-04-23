@@ -43,13 +43,13 @@
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-512x512.png",
+            "src": "/web_hi_res_512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "theme_color": "#00bb80",
     "background_color": "#00bb80",
-    "start_url": ".",
+    "start_url": "https://quiz-generator.000webhostapp.com/index.php",
     "display": "standalone"
 }

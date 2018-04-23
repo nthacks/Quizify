@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "teacher"
+AuthUserFile /storage/ssd4/151/5443151/public_html/teacher/.htpasswd
+Require valid-user

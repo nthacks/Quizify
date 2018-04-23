@@ -9,38 +9,38 @@ function generate_key()
 	$a5=range(93,126); shuffle($a5); //lowercase
 	
     return array_merge($a0,$a1,$a2,$a3,$a4,$a5);
-}
-function str_putcsv($arr)
-{
-	$csv = fopen('php://temp/maxmemory:'. (5*1024*1024), 'r+');
-	fputcsv($csv, $arr);
-	rewind($csv);
-	return stream_get_contents($csv);
+}
+function str_putcsv($arr)
+{
+	$csv = fopen('php://temp/maxmemory:'. (5*1024*1024), 'r+');
+	fputcsv($csv, $arr);
+	rewind($csv);
+	return stream_get_contents($csv);
 }
 function scramble($text)
-{
+{
 	global $key;
   if($text=="")
-  {   return $text;}
-	for ($i = 0; $i < strlen($text); $i++)
-	{
-		$newtext[$i]=chr($key[ord($text[$i])])??$text[$i];
-	}
-	return htmlspecialchars(implode($newtext));
-}
-$key=generate_key();
-$b64=base64_encode(str_putcsv($key));
-echo "<meta id='pk' value='$b64'>";
+  {   return $text;}
+	for ($i = 0; $i < strlen($text); $i++)
+	{
+		$newtext[$i]=chr($key[ord($text[$i])])??$text[$i];
+	}
+	return htmlspecialchars(implode($newtext));
+}
+$key=generate_key();
+$b64=base64_encode(str_putcsv($key));
+echo "<meta id='pk' value='$b64'>";
 ?>
 <script src="/js/o.min.js"></script>
-<script src="/js/x.min.js"></script>
-<style>
+<script src="/js/x.min.js"></script>
+<style>
 .scramble
 {font-family:'Demo';
 word-wrap: normal;
-filter:blur(10px);
+filter:blur(8px);
 transition: 500ms filter linear;
  -webkit-transition: 500ms -webkit-filter linear; -moz-transition: 500ms -moz-filter linear; -ms-transition: 500ms -ms-filter linear;
  -o-transition: 500ms -o-filter linear;
-}
+}
 </style>
