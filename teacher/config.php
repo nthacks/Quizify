@@ -1,8 +1,8 @@
 <?php
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'id5443151_quizify');
-define('DB_PASSWORD', 'Quiz@123');
-define('DB_NAME', 'id5443151_qb');
+define('DB_SERVER', 'host');
+define('DB_USERNAME', 'user');
+define('DB_PASSWORD', 'pass');
+define('DB_NAME', 'database');
  
 /* Attempt to connect to MySQL database */
 $mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
