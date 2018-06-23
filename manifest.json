@@ -48,8 +48,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#00bb80",
-    "background_color": "#00bb80",
-    "start_url": "https://quiz-generator.000webhostapp.com/index.php",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "start_url": "https://192.168.1.206/index.php",
     "display": "standalone"
 }
