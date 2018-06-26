@@ -34,7 +34,7 @@ function evaluateQuiz() {
     $("input[class=option-radio]").attr('disabled', true);
     $(".quiz-button").fadeOut();
     const scorecard = document.getElementById('scorecard');
-    let scoreElement = "<h2 style='text-align: center;font-family:Damion'>Scorecard</h2><br>" +
+    let scoreElement = "<h2 style='text-align: center'><span style='font-family:Damion'>Quizify</span><br><small>Score card</small></h2><br>" +
         "<table class='table table-striped table-hover table-responsive'>" +
         "<tr><th>Subject</th><th>Score</th></tr>";
     for (let i = 0; i < subjects.length; i++) {
