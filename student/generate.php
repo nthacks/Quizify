@@ -6,7 +6,7 @@ $rand = mt_rand();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title> Assessment Quiz </title>
+    <title> Generated Quiz </title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/>
@@ -49,8 +49,8 @@ $rand = mt_rand();
         <div class="m-aside scene_element scene_element--fadein">
             <div class="jumbotron text-center">
                 <h1 style="font-family: 'Damion'; font-size:70px;">
-                    <a style="color:inherit" href="/index.php">Quizify!</h1>
-                </a>
+                    <a style="color:inherit" href="/index.php">Quizify!</a>
+                </h1>
                 <h4>
                     <small>A Randomized Quiz Generator</small>
                 </h4>
@@ -99,7 +99,7 @@ $rand = mt_rand();
 
         echo "
         <div class=\"m-right-panel m-page scene_element scene_element--fadein\">
-        <div class='jumbotron text-center'>	
+        <div class='jumbotron text-center subject' id='$subject' len='$result->num_rows'>	
         <h2>
         <b>SUBJECT:</b>
         " . strtoupper($subject) . "<br>
@@ -148,7 +148,7 @@ $rand = mt_rand();
                             ";
                         }
                         echo "
-                        <div id='question_" . $row['qid'] . "' value='$correct_hash'></div>
+                        <div class='$subject' id='question_" . $row['qid'] . "' value='$correct_hash'></div>
                         <hr>
                         <br>
                         </div>
@@ -166,10 +166,10 @@ $rand = mt_rand();
                     <button class="quiz-button btn shadow-img2 btn-danger" type="reset" style="width:45%;margin:1em">
                         Reset
                     </button>
-                    <div id='scorecard' class='jumbotron' style='display: none'></div>
                 </div>
             </form>
         </div>
+        <div id='scorecard' class='jumbotron' style='display: none'></div>
     </div>
     <br>
 </div>
@@ -177,37 +177,6 @@ $rand = mt_rand();
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/js/site.js"></script>
 <script src="/js/mt.js"></script>
-<script>
-    var seed = document.getElementById('myStyles').getAttribute('href').split('?')[1];
-    var mt = new MersenneTwister(seed);
-    var rand = mt.int31();
-
-    function evaluateQuiz() {
-        var score = 0;
-        var questions = document.getElementsByClassName('question-container');
-        for (var i = 0; i < questions.length; i++) {
-            var flag = false;
-            var options = questions[i].getElementsByClassName('option-radio');
-            for (var j = 0; j < options.length; j++) {
-                if ((options[j].checked) && (j == document.getElementById(options[2].getAttribute('name')).getAttribute('value') - rand)) {
-                    score++;
-                    flag = true;
-                    questions[i].style.backgroundColor = "#bfb";
-                }
-            }
-            if (flag == false) {
-                questions[i].style.backgroundColor = "#fcc";
-            }
-        }
-        //document.body.style.backgroundImage = "none";
-        //document.body.style.backgroundColor = "white";
-        //alert("Your Score is "+score+"/"+questions.length);
-        $("input[class=option-radio]").attr('disabled', true);
-        $(".quiz-button").fadeOut();
-        var scorecard = document.getElementById('scorecard');
-        scorecard.innerHTML = "<b>Your Score is " + score + "/" + questions.length + "</b>";
-        $("#scorecard").fadeIn(2000);
-    }
-</script>
+<script src="/js/evaluate.js"></script>
 </body>
 </html>
