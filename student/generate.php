@@ -117,7 +117,7 @@ $rand = mt_rand();
                     $qno = 1;
                     while ($row = $result->fetch_assoc()) {
                         //Shuffling options
-                        $options = array($row["correct"], $row["wrong1"], $row["wrong2"], $row["wrong3"]);
+                        $options = array_filter(array($row["correct"], $row["wrong1"], $row["wrong2"], $row["wrong3"]));
                         shuffle($options);
                         echo '<div class="jumbotron question-container">';
                         echo " <b> Question " . $qno . " :</b><br><br>
@@ -129,7 +129,8 @@ $rand = mt_rand();
                             </article>
                             <p style='text-align:left'  class='scramble'>" . scramble($row["question"]) . "</p>";
                         echo "<hr>";
-                        for ($j = 0; $j < 4; $j++) {
+						$n=count($options);
+                        for ($j = 0; $j < $n; $j++) {
                             if ($options[$j] == "") {
                                 continue;
                             }

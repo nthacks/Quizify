@@ -18,8 +18,8 @@ function evaluateQuiz() {
     for (let i = 0; i < questions.length; i++) {
         let flag = false;
         const options = questions[i].getElementsByClassName('option-radio');
+		let hash = document.getElementById(options[0].getAttribute('name'));
         for (let j = 0; j < options.length; j++) {
-            let hash = document.getElementById(options[j].getAttribute('name'));
             if ((options[j].checked) && (j === hash.getAttribute('value') - rand)) {
                 let sub = hash.getAttribute('class');
                 scores[sub].score++;
